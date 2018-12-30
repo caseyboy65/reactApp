@@ -19,10 +19,6 @@
 	margin-left: 10px;
 }
 
-.Login input:hover {
-	background-color: #ffc266;
-}
-
 .Login button {
 	background-color: #ffc266;
 	border: none;

@@ -3,6 +3,7 @@ import './App.css';
 /*import Login from './Login';
 import Model from './utils/Model';*/
 import Header from './Header';
+import RightNav from './utils/RightNav'
 
 class App extends Component {
   constructor(){
@@ -23,8 +24,9 @@ class App extends Component {
 
   render() {
     return (
-      <Header onLogin = {this.handleLogin} />
-      /*{this.state.login ? <Model content={<Login />} /> : null}*/
+      <div>
+        <Header />
+      </div>
     );
   }
 }

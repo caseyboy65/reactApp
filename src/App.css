@@ -1,0 +1,25 @@
+/*Generic css*/
+input:hover {
+	background-color: #ffc266;
+}
+
+a {
+	font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; 
+}
+a:hover {
+	color: #ffc266;
+}
+
+/* FONT ICONS */
+.User::before { 
+    content: "\f007 Login";
+}
+
+.Menu::before {
+	content: "\f039 Menu";
+}
+
+.BackArrow::before {
+	content:"\f100 Back";
+}
