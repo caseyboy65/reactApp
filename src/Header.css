@@ -19,29 +19,14 @@
 
 
 .RightNav {
-	z-index: 1;
+	z-index: 9;
 	position: fixed;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
 	width: 0;
-	transition: width .5s;
-}
-
-.RightNav.Show {
-	width: 100%;
-}
-
-.RightNav::after {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background-color: black;
-	opacity: .5;
-	content:'';
+	transition: width 1s;
 }
 
 .RightNav .Content {
@@ -50,11 +35,15 @@
 	background-color: white;
 	width:0px;
 	height:100%;
-	transition: width 1s;
+	outline-color: rgba(0, 0, 0, .6);
+	outline-style: solid;
+	outline-width: 0px;
+	transition: width 1s, outline 1s;
 }
 
 .RightNav.Show .Content {
 	width: 400px;
+	outline-width: 3000px;
 }
 
 .RightNav .Content .Header .BackArrow {

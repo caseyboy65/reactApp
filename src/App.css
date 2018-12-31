@@ -11,6 +11,11 @@ a:hover {
 	color: #ffc266;
 }
 
+/*FONT COLORS */
+.FontWhite {
+	color: white;
+}
+
 /* FONT ICONS */
 .User::before { 
     content: "\f007 Login";
@@ -22,4 +27,16 @@ a:hover {
 
 .BackArrow::before {
 	content:"\f100 Back";
+}
+
+.LeftArrow::before {
+	content: "\f104";
+}
+
+.RightArrow:before {
+	content: "\f105";
+}
+
+.StoreLogo:before {
+	content:"\f2e7";
 }

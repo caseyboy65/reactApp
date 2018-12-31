@@ -1,0 +1,142 @@
+.StoreBrand {
+	position: relative;
+	margin:auto;
+	width:500px;
+	height: 100px;
+	text-align: center;
+}
+.StoreBrand .StoreName {
+	font-size:50px;
+}
+.StoreBrand .Welcome {
+	font-size: 25px;
+}
+.StoreBrand .StoreLogo {
+	position: absolute;
+	top:0;
+	right: 0;
+	vertical-align: middle;
+	line-height: 100px;
+	font-size:75px;
+	color:black;
+}
+
+.Home.Slideshow img{
+	width: 1200px;
+	height: 700px;
+}
+.Home.Slideshow .LeftArrow,
+.Home.Slideshow .RightArrow {
+	line-height: 700px;
+}
+.Home.Slideshow .Details {
+	line-height: 233px;
+	vertical-align: middle;
+}
+.Home.Slideshow .Details .Title,
+.Home.Slideshow .Details .Cost {
+	font-size: 100px
+}
+.Home.Slideshow .Details .Description {
+	font-size: 75px
+}
+
+@media only screen and (max-width : 1200px) {
+	.Home.Slideshow img{
+		width: 800px;
+		height: 460px;
+	}
+	.Home.Slideshow .LeftArrow,
+	.Home.Slideshow .RightArrow {
+		line-height: 460px;
+	}
+	.Home.Slideshow .Details {
+		line-height: 153px;
+		vertical-align: middle;
+	}
+	.Home.Slideshow .Details .Title,
+	.Home.Slideshow .Details .Cost {
+		font-size: 66px
+	}
+	.Home.Slideshow .Details .Description {
+		font-size: 49px
+	}
+}
+
+@media only screen and (max-width : 800px) {
+	.Home.Slideshow img{
+		width: 400px;
+		height: 230px;
+	}
+	.Home.Slideshow .LeftArrow,
+	.Home.Slideshow .RightArrow {
+		line-height: 230px;
+	}
+	.Home.Slideshow .Details {
+		line-height: 76px;
+		vertical-align: middle;
+	}
+	.Home.Slideshow .Details .Title,
+	.Home.Slideshow .Details .Cost {
+		font-size: 33px
+	}
+	.Home.Slideshow .Details .Description {
+		font-size: 24px
+	}
+}
+
+
+
+.Slideshow {
+	margin: auto;
+	width: fit-content;
+	position: relative;
+}
+.Slideshow .Content{
+	display: none;
+}
+.Slideshow .Details {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: .0;
+	color: white;
+	background-color: rgba(0, 0, 0, .5);
+	text-align: center;
+
+	transition: opacity .5s;
+}
+.Slideshow .Details:hover {
+	opacity: 1;
+}
+.Slideshow .Details div {
+	margin: 10px;
+	z-index: 2;
+}
+.Slideshow .Details .Title,
+.Slideshow .Details .Cost {
+	font-size:30px;
+}
+.Slideshow .Details .Description {
+	font-style: italic;
+}
+.Slideshow .Content.Show {
+	display: block;
+}
+.Slideshow .LeftArrow,
+.Slideshow .RightArrow {
+	font-size: 30px;
+	position: absolute;
+	z-index: 2;
+	vertical-align: middle;
+	background-color: rgba(0, 0, 0, .5);
+}
+.Slideshow .LeftArrow{
+	left: 0;
+}
+.Slideshow .RightArrow {
+	right: 0;
+}
