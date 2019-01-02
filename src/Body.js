@@ -45,7 +45,7 @@ class Body extends Component {
 
   render() {
     return (
-        <div className="Body">
+        <div className="Home">
             <div className="StoreBrand"> 
                 <div className="Welcome">Welcome to </div>
                 <div className="StoreName"> Mimi's Kitchen </div>
