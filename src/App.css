@@ -2,11 +2,11 @@
 input:hover {
 	background-color: #ffc266;
 }
-
 a {
 	font-family: "Font Awesome 5 Free"; 
     font-weight: 900; 
 }
+.Icon:hover,
 a:hover {
 	color: #ffc266;
 }
@@ -22,109 +22,49 @@ a:hover {
 
 /* FONT ICONS */
 .User::before { 
-    content: "\f007 Login";
+    content: "\f007";
 }
-
 .Menu::before {
-	content: "\f039 Menu";
+	content: "\f039";
 }
-
 .BackArrow::before {
-	content:"\f100 Back";
+	content:"\f100";
 }
-
 .LeftArrow::before {
 	content: "\f104";
 }
-
 .RightArrow:before {
 	content: "\f105";
 }
-
 .StoreLogo:before {
 	content:"\f2e7";
+}
+.ShoppingCart:before {
+	content:"\f07a";
+}
+
+/*Small screen icon behavior*/
+@media only screen and (max-width : 600px) {
+	.Label {
+		display:none;
+	}
 }
 
 
 /* Page Header CSS */
 .Header {
 	background-color: #9999ff;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	height: 40px;
 }
 .Header .Right {
 	float: right;
-	vertical-align-align:middle;
-	line-height: 0px;
-	margin-right: 10px;
 }
 .Header .Left {
 	float: left;
-	vertical-align:middle;
-	line-height: 0px;
 }
 
-
-/* Right Nav Menu component */
-.RightNav {
-	z-index: 9;
-	position: fixed;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	width: 0;
-	transition: width 1s;
+.Header .Right  > div,
+.Header .Left  > div {
+	margin: 10px;
+	display: inline-block;
 }
-.RightNav .Content {
-	position: absolute;
-	z-index: 2;
-	background-color: white;
-	width:0px;
-	height:100%;
-	outline-color: rgba(0, 0, 0, .6);
-	outline-style: solid;
-	outline-width: 0px;
-	transition: width 1s, outline 1s;
-	overflow: hidden;
-}
-.RightNav.Show .Content {
-	width: 250px;
-	outline-width: 3000px;
-}
-.RightNav .Content .List{
-	text-align: center;
-	margin-top: 20px;
-	line-height: normal;
-	font-size: 25px;
-}
-.RightNav .Content .Header .BackArrow {
-	float: right;
-	margin-right: 10px;
-}
-
-/*3d Rotation animation for menu*/
-/*.ShowNav{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    right: 0;
-    z-index: 1;
-}
-.HideNav,
-.ShowNav{
-	background-color:grey;
-	perspective:2000px;
-}
-.Doc {
-	transition: all 0.5s ease 0s;
-
-}
-.HideNav .Doc{
-	transform: translate3d(0px, 0px, 0px) rotateY(-0deg);
-	transform-style: preserve-3d;
-}
-.ShowNav .Doc {
-	transform: translate3d(0px, 0px, -600px) rotateY(-30deg);
-}*/

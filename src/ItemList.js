@@ -2,26 +2,52 @@ import React, {Component} from 'react';
 import './ItemList.css';
 
 class ItemList extends Component {
-  render() {
-    return (
-        <div className="ItemList">
-            <div className="Item" >
+    render() {
+        let data = [];
+        this.props.items.forEach((item) => {
+                data.push(<Item 
+                            name={item.name}
+                            description={item.description}
+                            price={item.price} 
+                            image={item.image} /> );
+            });  
+        return (
+               <div className="ItemList">
+                    <div className="Title">
+                        {this.props.category}
+                    </div>
+                    <div className="Content">
+                        {data}
+                    </div>
+               </div>
+        );
+    }
+}
+
+class Item extends Component {
+    render() {
+        let images = {};
+        let r = require.context('./img', false, /\.(png|jpe?g|svg)$/);
+        r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+
+        return (
+             <div className="Item" >
                 <div className="Details">
                     <div className="Title">
-                        Apple
+                        {this.props.name}
                     </div>
                     <div className="Description">
-                        Crisp, fresh, delicious
+                        {this.props.description}
                     </div>
                     <div className="Cost">
-                        99¢ / lb
+                        {this.props.price}
                     </div>
                 </div>
-                <img src={require('./img/apples.jpg')} />
+                <img src={images[this.props.image]} />
             </div>
-        </div>
-    );
-  }
+        );    
+    }
+    
 }
 
 export default ItemList;

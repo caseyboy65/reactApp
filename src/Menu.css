@@ -1,0 +1,40 @@
+/* Right Nav Menu component */
+.RightNav {
+	z-index: 9;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 0;
+	transition: width 1s;
+}
+.RightNav .Content {
+	position: absolute;
+	z-index: 2;
+	background-color: white;
+	width:0px;
+	height:100%;
+	outline-color: rgba(0, 0, 0, .6);
+	outline-style: solid;
+	outline-width: 0px;
+	transition: width 1s, outline 1s;
+	overflow: hidden;
+}
+.RightNav.Show .Content {
+	width: 250px;
+	outline-width: 3000px;
+}
+.RightNav .Content .List{
+	text-align: center;
+	margin-top: 20px;
+	line-height: normal;
+	font-size: 25px;
+}
+.RightNav .Content .List a{
+	display:block;
+}
+.RightNav .Content .Header .BackArrow {
+	float: right;
+	margin-right: 10px;
+}
