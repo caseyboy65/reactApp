@@ -6,6 +6,9 @@ import Body from './Body';
 import ItemList from './ItemList';
 import Menu from './Menu';
 
+let shoppingCart = [
+];
+
 const FRUITS = [
   {name: 'Apple', description: 'Crisp, fresh, delicious', price: '$.99 / lb', image: 'apple.jpeg'},
   {name: 'Orange', description: 'Juicy, fresh, citrus', price: '$1.22 / lb', image: 'orange.jpeg'},
@@ -48,11 +51,16 @@ class App extends Component {
 
     this.state = {
       pageToShow: "Home",
-      showNav: false
+      showNav: false,
+      showCart: false,
+      numberOfItemsInCart: 0
     };
 
     this.navigateTo = this.navigateTo.bind(this);
     this.toggleNav = this.toggleNav.bind(this);
+    this.addToShoppingCart = this.addToShoppingCart.bind(this);
+    this.removeFromShoppingCart = this.removeFromShoppingCart.bind(this);
+    this.toggleCart = this.toggleCart.bind(this);
   }
 
   navigateTo(pageName) {
@@ -62,10 +70,30 @@ class App extends Component {
   }
 
   toggleNav() {
-    console.log("Toggle Nav");
     this.setState ({
       showNav: !this.state.showNav
     });
+  }
+
+  addToShoppingCart(data) {
+    shoppingCart.push(data);
+    var newCartSize = this.state.numberOfItemsInCart + 1;
+    this.setState({
+      numberOfItemsInCart: newCartSize
+    });
+  }
+
+  removeFromShoppingCart(data) {
+    for (var x = 0; x <this.state.numberOfItemsInCart; x++){
+      if (shoppingCart[x].name == data.name) {
+          shoppingCart.splice(x, 1);
+          var newCartSize = this.state.numberOfItemsInCart - 1;
+          this.setState({
+            numberOfItemsInCart: newCartSize
+          });
+          break;
+      }
+    }
   }
 
   getBodyContent(pageToShow) {
@@ -75,7 +103,10 @@ class App extends Component {
     } else {
       INVENTORY.forEach((item) => {
         if(item.category == pageToShow) {
-          content.push(<ItemList items={item.data} category={item.category}/> );
+          content.push(<ItemList 
+                          action = {this.addToShoppingCart} 
+                          items={item.data} 
+                          category={item.category}/> );
         }
       }); 
     }
@@ -83,10 +114,19 @@ class App extends Component {
     return content;
   }
 
+  toggleCart() {
+    this.setState ({
+      showCart: !this.state.showCart
+    });
+  }
+
   render() {
     return (
       <div className={this.state.showNav ? "ShowNav" : "HideNav"}>
-        <Header toggleNav = {this.toggleNav}/>
+        <Header 
+          cartSize = {this.state.numberOfItemsInCart}
+          toggleNav = {this.toggleNav} 
+          toggleCart = {this.toggleCart} />
         <div className="Body">
           {this.getBodyContent(this.state.pageToShow)}      
         </div>
@@ -95,6 +135,12 @@ class App extends Component {
           inventory = {INVENTORY}
           toggleNav = {this.toggleNav}
           showNav = {this.state.showNav}/>
+        {this.state.showCart ? <Model 
+                                    closeAction = {this.toggleCart}
+                                    content={<ItemList 
+                                                action={this.removeFromShoppingCart}
+                                                items={shoppingCart}
+                                                category="Shopping Cart" />} /> : null}
       </div>
     );
   }
@@ -115,8 +161,9 @@ class Header extends Component {
                     
                 </div>
                 <div className="Right"> 
-                    <div className="Icon">
+                    <div className="Icon" onClick= {this.props.toggleCart}>
                       <a className="ShoppingCart" />
+                      <span className="CartSize"> {this.props.cartSize} </span>
                       <span className="Label"> Cart </span>
                     </div>
                     <User />

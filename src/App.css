@@ -42,6 +42,9 @@ a:hover {
 .ShoppingCart:before {
 	content:"\f07a";
 }
+.Close:before {
+	content:"\f00d";
+}
 
 /*Small screen icon behavior*/
 @media only screen and (max-width : 600px) {

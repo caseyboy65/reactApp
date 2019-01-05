@@ -34,7 +34,8 @@
 .RightNav .Content .List a{
 	display:block;
 }
-.RightNav .Content .Header .BackArrow {
+.RightNav .Content .Header .Icon {
+	margin: 10px;
 	float: right;
 	margin-right: 10px;
 }
